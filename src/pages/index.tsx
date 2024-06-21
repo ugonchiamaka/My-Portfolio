@@ -28,7 +28,6 @@ function Index() {
   const aboutRef = useRef(null);
   const experienceRef = useRef(null);
   const projectRef = useRef(null);
-  // const isInView = useInView(experienceRef);
 
   return (
     <div>
