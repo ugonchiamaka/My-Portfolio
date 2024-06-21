@@ -1,53 +1,102 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-function Experience() {
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { FiExternalLink } from "react-icons/fi";
+function Experience({
+  experienceRef,
+  setActiveSection,
+  setExperienceView,
+  experienceView,
+}: any) {
   const [selected, setSelected] = useState(0);
-
+  // const ref = experienceRef;
+  const container = useRef(null);
+  const isInViewExperience = useInView(experienceRef, {
+    once: false,
+    margin: "0px",
+  });
   useEffect(() => {
-    const transformSelected = () => {
-      const underline = document.querySelector<HTMLElement>(".underline");
-      underline!.style.top = `${selected * 2.5}rem`;
-    };
-    transformSelected();
-  }, [selected]);
+    if (isInViewExperience) {
+      // setActiveSection(1); // Set the active section to Experience when in view
+      setExperienceView(true);
+    } else {
+      setExperienceView(false);
+    }
+  }, [isInViewExperience, setExperienceView]);
 
+  // useEffect(() => {
+  //   const transformSelected = () => {
+  //     const underline = document.querySelector<HTMLElement>(".underline");
+  //     underline!.style.top = `${selected * 2.5}rem`;
+  //   };
+  //   transformSelected();
+  // }, [selected]);
   const expereinces = [
     {
-      name: "EduSkill Foundation",
-      role: "AI/ML Internship",
+      name: "2021 - PRESENT",
+      role: "Software Engineer • Prunedge",
       url: "https://www.rapidops.com",
-      start: "September 2023",
-      end: "November 2023",
+      start: "NOV 2021",
+      end: "PRESENT",
       shortDescription: [
-        "Acquired hands-on knowledge of AWS Cloud Foundation, delving into cloud infrastructure, services, and deployment.",
-        "Gained a solid foundation in Machine Learning, covering topics like algorithms, data analysis, and model building.",
+        "Build, maintain and ship high quality software solutions based on client requirements. Test and refine software prior to rollout. Design and implement digital experiences for a diverse array of projects including Document and Expenditure Management System, Learning Management System for different schools, Human Resource Management System. Provide ideas and leadership withing the team through close collaboration, knowledge, shares and providing mentorship to interns.",
+      ],
+      langType: [
+        "Javascript",
+        "Typescript",
+        "React",
+        "Storybook",
+        "Tailwind",
+        "Next",
+        "Material-ui",
+        "React-Query",
+        "Redux",
+        "Redux-toolkit",
       ],
     },
     {
       name: "Mathwork",
-      role: "Virtual Intern",
+      role: "Software Engineer • Bundo",
       url: "https://www.mathwork.com",
-      start: "May 2023",
-      end: "September 2023",
+      start: "DEC 2023",
+      end: "PRESENT",
       shortDescription: [
-        "Completed virtual internship, gaining a strong foundation in MATLAB, including data analysis and processing.",
-        "Acquired practical skills in image and signal processing, including segmentation, batch processing, and spectral analysis.",
-        "Developed expertise in machine learning models for clustering, classification, and regression, and customized deep learning techniques for image classification.",
+        "Build, style, design systems and implement digital experiences for an e-commerce platform. Work closely with cross functional teams, including developers, designers, and product managers to implement and advocate for best practices in web accessibility.",
       ],
+      langType: ["Javascript", "Typescript", "Tailwind", "Next", "React-Query"],
     },
+
     {
-      name: "Edunet Foundation",
-      role: "Artificial Intelligence Intern",
-      url: "https://www.edunetfoundation.org",
-      start: "June 2023",
-      end: "July 2023",
+      name: "CodeLabd",
+      role: "Internship • CodeLab",
+      url: "https://www.mathwork.com",
+      start: "MAY 2022",
+      end: "NOV 2022",
       shortDescription: [
-        "Engineered a comprehensive Mental Health Fitness Tracker ML model utilizing Python and scikit-learn.",
-        "Maximized the model's performance by refining model parameters and employing ensemble methods, yielding an outstanding accuracy percentage of 98.50%.",
-        "Leveraged 12 regression algorithms to attain precise outcomes in analyzing and predicting mental fitness levels across 150+ countries.",
+        "Developed and styled different interactive web apps. Replicated few social media platforms including WhatsApp and Telegram. Collaborated with other interns to create new brands, design systems and websites for schools, organisations and small businesses in the community. I also Created simple Api's for small projects",
+      ],
+      langType: [
+        "React",
+        "Javascript",
+        "Styled-component",
+        "Firebase",
+        "Node",
+        "Express",
+        "Mongodb",
       ],
     },
+    // {
+    //   name: "Edunet Foundation",
+    //   role: "Artificial Intelligence Intern",
+    //   url: "https://www.edunetfoundation.org",
+    //   start: "June 2023",
+    //   end: "July 2023",
+    //   shortDescription: [
+    //     "Engineered a comprehensive Mental Health Fitness Tracker ML model utilizing Python and scikit-learn.",
+    //     "Maximized the model's performance by refining model parameters and employing ensemble methods, yielding an outstanding accuracy percentage of 98.50%.",
+    //     "Leveraged 12 regression algorithms to attain precise outcomes in analyzing and predicting mental fitness levels across 150+ countries.",
+    //   ],
+    // },
   ];
   return (
     <motion.div
@@ -58,54 +107,102 @@ function Experience() {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       variants={{
-        visible: { opacity: 1, y: -50 },
+        visible: { opacity: 1, y: 0 },
         hidden: { opacity: 0, y: 0 },
       }}
     >
-      <div className="title">
+      {/* <div className="title">
         <h2>Where I&apos;ve Worked</h2>
-      </div>
-      <div className="container">
-        <ul className="exp-slider">
-          <div className="underline"></div>
+      </div> */}
+
+      <div>
+        {/* <motion.div
+          // className="about"
+          id="about"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          variants={{
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: 0 },
+          }}
+        > */}
+
+        <div className="title">
+          <h2>EXPERIENCE</h2>
+        </div>
+        {/* </motion.div> */}
+
+        <div ref={experienceRef} className="wrapper">
           {expereinces.map((expereince, index) => {
             return (
-              <li
-                className={`exp-slider-item ${
-                  index === selected && "exp-slider-item-selected"
-                }`}
-                onClick={() => setSelected(index)}
-                key={expereince.name}
-              >
-                <span>{expereince.name}</span>
-              </li>
+              <div key={expereince.name} className="wrap">
+                <div className="container">
+                  <ul className="exp-slider">
+                    <li
+                    // className={`exp-slider-item ${
+                    //   index === selected && "exp-slider-item-selected"
+                    // }`}
+                    // onClick={() => setSelected(index)}
+                    >
+                      <p className="exp-details-range">
+                        {expereince.start} — {expereince.end}
+                      </p>
+                      {/* <span>{expereince.name}</span> */}
+                    </li>
+                  </ul>
+                  <div className="exp-details">
+                    <div className="exp-details-position">
+                      <p className="exp-details-position-header">
+                        <span>{expereince.role}</span>
+                        {/* <span className="exp-details-position-company"></span> */}
+                      </p>
+
+                      <ul className="exp-details-list">
+                        <li key={index} className="exp-details-list-item">
+                          {expereince.shortDescription}
+                        </li>
+                      </ul>
+                      <div
+                        style={{
+                          marginTop: "1rem",
+                          display: "flex",
+                          flexWrap: "wrap",
+                          width: "100%",
+                          gap: "6px",
+                        }}
+                      >
+                        {expereince.langType.map((prop, idx) => {
+                          return (
+                            <button
+                              key={idx}
+                              className="exp-details-list-item-buttonType"
+                            >
+                              {prop}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div ref={experienceRef} />
+              </div>
             );
           })}
-        </ul>
-        <div className="exp-details">
-          <div className="exp-details-position">
-            <h3>
-              <span>{expereinces[selected].role}</span>
-              <span className="exp-details-position-company">
-                &nbsp;@&nbsp;
-                <Link href={expereinces[selected].url} className="link">
-                  {expereinces[selected].name}
-                </Link>
-              </span>
-            </h3>
-            <p className="exp-details-range">
-              {expereinces[selected].start} - {expereinces[selected].end}
-            </p>
-            <ul className="exp-details-list">
-              {expereinces[selected].shortDescription.map(
-                (description, index) => (
-                  <li key={index} className="exp-details-list-item">
-                    {description}
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
+          <Link
+            href={
+              "https://drive.google.com/file/d/1TqNHO02ZtLhRyCpgrGYjSh-q4YvfwhlB/view?usp=sharing"
+            }
+            className="link-wrap"
+          >
+            <span>View Full Résumé </span>
+            <span className="link-icon">
+              {" "}
+              <FiExternalLink />
+            </span>
+          </Link>
         </div>
       </div>
     </motion.div>

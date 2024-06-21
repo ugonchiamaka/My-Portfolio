@@ -1,12 +1,18 @@
 :root {
-  --tsm: 13px;
+  --tsm: 12px;
   --tsm1: 14px;
   --tsm2: 15px;
+  --tsm4: 13px;
   --tbase: 16px;
   --tlarge: 18px;
   --tlarge2: 22px;
   --txlarge: 25px;
   --tx2large: 32px;
+  --tgiant3: clamp(20px, 5vw, 25px);
+
+  --tgiant2: clamp(35px, 5vw, 52px);
+
+  --tgiant1: clamp(30px, 5vw, 55px);
   --tgiant: clamp(40px, 8vw, 80px);
   @media screen and (max-width: 480px) {
     --tx2large: 25px;

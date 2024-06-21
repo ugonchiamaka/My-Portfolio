@@ -1,23 +1,39 @@
 .hero {
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  justify-content: center;
-  min-height: 60vh;
+  position: sticky;
+  bottom: 0;
+  // left: 19rem;
+  top: 6rem;
+  bottom: 0;
+  width: fit-content;
+  // padding-left: 1.8rem;
+  // padding-right: 1.8rem;
+
+  height: calc(100vh - 6rem);
+  min-height: 0vh;
+  // background-color: red;
   &-title {
     color: var(--theme-color);
     font-size: var(--tsm2);
-    font-family: var(--fira-code);
+    font-family: var(--inter-code);
+
+    // font-family: var(--raleway);
+    font-weight: 500;
   }
   &-title-large {
-    font-size: var(--tgiant);
-    font-family: var(--raleway);
-    color: var(--light-slate);
+    font-size: var(--tgiant2);
+    font-weight: 800;
+    font-family: var(--inter-code);
+    // color: var(--light-slate);
+    color: var(--lightest-slate);
   }
   &-title-sub {
-    color: var(--lightest-slate);
+    font-size: var(--tgiant3);
+    margin-bottom: 20px;
+    margin-top: 10px;
+    // color: var(--lightest-slate);
+    font-weight: 500;
+    // color: var(--light-slate);
+    // color: var(--theme-color);
   }
   &-text {
     color: var(--slate);
@@ -27,6 +43,9 @@
     line-height: 1.6rem;
     font-weight: 600;
     font-family: var(--raleway);
+    // width: 70%;
+    // margin-top: 4rem;
+    margin-bottom: 4rem;
   }
   &-button {
     margin-top: 2rem;
@@ -35,7 +54,21 @@
       font-size: var(--tsm1);
     }
   }
+
+  @media screen and (max-width: 600px) {
+    height: 0vh;
+    &-text {
+      margin-bottom: 0.5rem;
+      width: 90%;
+    }
+  }
   @media screen and (max-width: 768px) {
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+    height: 0vh;
+    margin-bottom: 4rem;
+    margin-top: 1.5rem;
+
     &-text {
       width: 90%;
     }

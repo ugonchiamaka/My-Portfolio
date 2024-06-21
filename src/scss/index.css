@@ -9,6 +9,7 @@
   --tlarge2: 22px;
   --txlarge: 25px;
   --tx2large: 32px;
+  --tgiant1: clamp(40px, 6vw, 60px);
   --tgiant: clamp(40px, 8vw, 80px);
 }
 
@@ -22,7 +23,7 @@
 .social-icons {
   position: fixed;
   bottom: 0;
-  left: 4rem;
+  left: 2rem;
 }
 
 .social-icons-list {
@@ -150,7 +151,6 @@
   background-color: var(--lightest-navy);
 }
 
-
 /* Link */
 .link {
   text-decoration: none;
@@ -237,7 +237,7 @@ nav .wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 4rem;
+  /* padding: 0 3rem; */
   transition: 0.3s ease-in-out;
   position: relative;
 }
@@ -268,7 +268,7 @@ nav .wrapper .nav-responsive-toggle {
   justify-content: center;
   align-items: center;
   transition: 0.3s ease-in-out;
-  z-index: 15;
+  /* z-index: 15; */
 }
 nav .wrapper .nav-items {
   display: flex;
@@ -308,7 +308,7 @@ nav .wrapper .nav-items-list-item:hover {
   }
   nav .wrapper .nav-responsive-toggle {
     display: flex;
-    z-index: 15;
+    /* z-index: 15; */
   }
   nav .wrapper .nav-items {
     position: fixed;
@@ -324,7 +324,7 @@ nav .wrapper .nav-items-list-item:hover {
     justify-content: center;
     align-items: center;
     transition: 0.3s ease-in-out;
-    z-index: 11;
+    /* z-index: 11; */
   }
   nav .wrapper .nav-items-list {
     flex-direction: column;
@@ -340,17 +340,21 @@ nav .blur-nav {
   position: fixed;
   top: 0;
   transition: 0.3s ease-in-out;
-  z-index: 100;
-  background-color: rgba(239, 239, 239, 0.85); /* Update with your preferred color */
+  z-index: 99999;
+  background-color: rgba(
+    239,
+    239,
+    239,
+    0.85
+  ); /* Update with your preferred color */
 
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
-
 /* Hero Section */
 .hero {
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -364,7 +368,7 @@ nav .blur-nav {
   font-family: var(--fira-code);
 }
 .hero-title-large {
-  font-size: var(--tgiant);
+  font-size: var(--tgiant1);
   font-family: var(--raleway);
   color: var(--light-slate);
 }
@@ -506,7 +510,7 @@ nav .blur-nav {
   height: 350px;
   width: 350px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .about-grid-photo-container img {
   z-index: 0;
@@ -660,6 +664,11 @@ nav .blur-nav {
 .experience .container .exp-details {
   height: 40vh;
   font-family: var(--raleway);
+}
+
+.experience .container .exp-details:hover {
+  background-color: var(--light-navy);
+  cursor: pointer;
 }
 .experience .container .exp-details-position {
   color: var(--lightest-slate);
@@ -1017,4 +1026,4 @@ footer .footer-link .footer-git-item-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-}/*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=index.css.map */

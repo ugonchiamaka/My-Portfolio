@@ -1,15 +1,23 @@
 import React from "react";
-import {
-  FiGithub,
-  FiInstagram,
-  FiLinkedin,
-} from "react-icons/fi";
+import { FiGithub, FiInstagram, FiLinkedin } from "react-icons/fi";
 
 function SocialIcons() {
   const socialLinks = [
-    { name: "Github", icon: <FiGithub />, link: "https://www.github.com/lohitkolluri" },
-    { name: "LinkedIn", icon: <FiLinkedin />, link: "https://www.linkedin.com/in/kollurilohit/" },
-    { name: "Instagram", icon: <FiInstagram />, link: "https://instagram.com/kollurilohit" },
+    {
+      name: "Github",
+      icon: <FiGithub />,
+      link: "https://github.com/ugonchiamaka",
+    },
+    {
+      name: "LinkedIn",
+      icon: <FiLinkedin />,
+      link: "https://www.linkedin.com/in/judith-ugonna-77966619b/",
+    },
+    {
+      name: "Instagram",
+      icon: <FiInstagram />,
+      link: "https://www.instagram.com/jhudy_codes/",
+    },
   ];
 
   return (
