@@ -4,7 +4,6 @@ This is my personal portfolio website built using Next.js. It showcases my proje
 
 <h2>🚀 Demo</h2>
 
-[https://lohitkolluri.tech](https://lohitkolluri.tech)
 
 <h2>🧐 Features</h2>
 
