@@ -17,8 +17,7 @@ This is my personal portfolio website built using Next.js. It showcases my proje
 <h2>🛠️ Installation Steps:</h2>
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/lohitkolluri/Portfolio.git
+ -->
     ```
 
 2. Go to the directory:
